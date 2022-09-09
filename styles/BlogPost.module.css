@@ -1,0 +1,59 @@
+.mdxContent pre {
+  @apply rounded-lg bg-gray-800 overflow-scroll;
+}
+.mdxContent pre code,
+.mdxContent p code {
+  @apply text-gray-400;
+}
+
+.mdxContent pre code span {
+  @apply text-gray-600;
+}
+
+.mdxContent a > code {
+  @apply bg-gray-800 rounded-lg p-1;
+}
+
+.mdxContent a {
+  @apply text-blue-400 hover:underline;
+}
+
+.mdxContent p {
+  @apply leading-8;
+}
+
+.mdxContent h1,
+.mdxContent h2,
+.mdxContent h3,
+.mdxContent h4,
+.mdxContent h5,
+.mdxContent h6 {
+  @apply leading-8 mt-8 mb-4 font-medium;
+}
+
+.mdxContent ul {
+  @apply list-disc leading-8 pl-8;
+}
+
+.mdxContent h6 {
+  @apply text-xs;
+}
+.mdxContent h5 {
+  @apply text-sm;
+}
+.mdxContent h4 {
+  @apply text-base;
+}
+.mdxContent h3 {
+  @apply text-lg;
+}
+.mdxContent h2 {
+  @apply text-xl;
+}
+.mdxContent h1 {
+  @apply text-2xl;
+}
+
+.mdxContent strong {
+  font-weight: 700;
+}

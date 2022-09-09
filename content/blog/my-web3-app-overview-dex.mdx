@@ -1,0 +1,218 @@
+---
+title: 'My Web3 App Overview: Decentralized Exchange'
+date: '2022-08-17'
+description: The DEX application is a portfolio project for dovydas.io. It's built with Solidity and deployed on Ethereum Test Network Ropsten.
+thumbnailUrl: '/img/blog/my-web3-app-overview-dex/dex-2.png'
+tags: ['functions', 'javascript']
+---
+
+Over the past few years, there have been a rapid increase in blockchain projects which enable the use of smart contracts.
+These projects allow to create new tokens which share a common technical standard.
+This standard enables the tokens to be interchangeable with each other.
+
+<br />
+Platform where users can trade their tokens is commonly called an Exchange or DEX
+(Decentralized Exchange). DEXES have become an integral part of all blockchain ecosystems
+which allow smart contract and token creation.
+
+<br />
+This article shares an overview for one of my portfolio projects
+<a href="https://dex.dovydas.io" target="_blank">“Decentralized Exchange”</a> built on Ethereum.
+
+In Ethereum ecosystem, ERC-20 is the technical standard for fungible tokens which can be interchangeable with each other.
+Smart contract for Decentralized Exchange is deployed on Ethereum testnet, therefore
+ERC-20 tokens listed on exchange are also only testnet representations. USDC stablecoin
+(testnet token) is used for trade settlement.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-dex/dex-3.png"
+  caption="Trading page with The Graph (GRT) token selected"
+  width="800"
+  height="500"
+></ImageCaption>
+
+All tokes which are traded on the exchange must be first approved by the token holder to allow the smart contract to execute trades for these tokens.
+Wallet section (ref. image below) helps distinguish tokens approved for trading from those available on the wallet.
+User can withdraw and deposit available tokens at any time.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-dex/dex-6.png"
+  caption="Wallet (left) and Transfer (right) sections"
+  width="640"
+  height="360"
+></ImageCaption>
+
+An open orderbook shows all active orders on the exchgange.
+Trading chart is available showcasing price changes per each executed trade.
+A more common solution for such trading charts is to show price changes based on time intervals.
+However, since it is a low volume application, I decided to display price changes per executed trades count.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-dex/dex-4.png"
+  caption="Trading chart based on executed trade count"
+  width="650"
+  height="600"
+></ImageCaption>
+
+Order book for all active trades is available for each token.
+There is a separate section to display active orders placed by the authenticated user.
+Orders can be canceled by their owners at any time if it's not yet fulfilled.
+Tokens for active limit orders are subtracted from the wallet and are not available for withdrawl.
+It is then returned if the order is canceled or distributed according to the trade settlement.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-dex/dex-5.png"
+  caption="Section displaying order book for all trades and open trades by connected user"
+  width="750"
+  height="460"
+></ImageCaption>
+
+When browsing the application Metamask should be connected to "Ropsten Test Network" (ref. image below) as smart contract is deployed on the testnet.
+Rinkeby testnet Ether is used for gas fees when interacting with the application (f.e. deposit, withdraw, create new trade).
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-6.png"
+  caption="Switch to Ropsten Test Network when interacting with the app"
+  width="300"
+  height="500"
+></ImageCaption>
+
+<InformationalText>
+  To get some Ropsten Ethers for testing, you can use the&nbsp;
+  <a href="https://www.ropstenfaucet.xyz" target="_blank">
+    Ropsten faucet
+  </a>
+  <p>.</p>
+</InformationalText>
+
+## What Tools Did I Use?
+
+#### Smart Contract Development
+
+- <a href="https://trufflesuite.com" target="_blank">
+    Truffle Suite
+  </a>
+  A world class development environment, testing framework and asset pipeline for
+  blockchains using the Ethereum Virtual Machine (EVM), aiming to make life as a
+  developer easier.
+
+- <a href="https://docs.openzeppelin.com/test-helpers" target="_blank">
+    OpenZeppelin Test Helpers
+  </a>
+  Assertion library for Ethereum smart contract testing.
+
+- <a href="https://www.openzeppelin.com/contracts" target="_blank">
+    OpenZeppelin Contracts
+  </a>
+  OpenZeppelin Contracts helps you minimize risk by using battle-tested libraries
+  of smart contracts for Ethereum and other blockchains.
+
+#### Web Application Development
+
+- <a href="https://nextjs.org/" target="_blank">
+    Next.js
+  </a>
+  Next.js gives you the best developer experience with all the features you need
+  for production.
+
+- <a href="https://apexcharts.com/" target="_blank">
+    ApexCharts
+  </a>
+  Modern charting library that helps developers to create beautiful and interactive
+  visualizations for web pages.
+
+- <a href="https://tailwindcss.com" target="_blank">
+    Tailwind CSS
+  </a>
+  Rapidly build modern websites without ever leaving your HTML.
+
+<InformationalText>
+  Full list of dependencies can be found in `package.json` stored on project
+  &nbsp;
+  <a href="https://github.com/dovydinho/dex" target="_blank">
+    GitHub
+  </a>
+  &nbsp;repository.
+</InformationalText>
+
+## Smart Contract
+
+There are several smart contracts used for the application.
+`DEX.sol` is the main smart contract. Other smart contracts are ERC-20 instances for tokens to be used on testnet.
+
+DEX smart contract enables users to make instant trades (market orders) and to set orders which would be executed if desired price is met (limit orders).
+
+#### Market order functionality ensures the following:
+
+- User has sufficient balances when placing orders.
+- Orders are fulfilled starting from the first order in the order book (order book is sorted when placing limit orders)
+- Balances for impacted orders and amounts are update after executed trades.
+- Fullfilled orders are removed from the orderbook.
+
+#### Limit order functionality ensures the following:
+
+- User has sufficient balances when placing orders.
+- Order amount is subtracted from user balance (return if trade is canceled).
+- Order is added to the order book.
+- Order book is sorted for BUY and SELL orders appropriately.
+
+<InformationalText>
+  Explore smart contract on Etherscan:&nbsp;
+  <a
+    href="https://ropsten.etherscan.io/address/0xE3304B555607eA326E7Ba77a3C56aD9820dCc0f2"
+    target="_blank"
+  >
+    0xE3304B555607eA326E7Ba77a3C56aD9820dCc0f2
+  </a>
+</InformationalText>
+
+## Testing Smart Contract
+
+Since smart contracts on Ethereum blockchain are immutable, the most critical phase before deployment is to ensure that the smart contract is absent of any coding errors and thoroughly tested.
+
+There have been a total of 18 smart contract tests written and asserted for this application:
+
+#### For DEX Smart Contract:
+
+- Should deposit tokens.
+- Should NOT deposit tokens if token does not exist.
+- Should withdraw tokens.
+- Should NOT withdraw tokens if token does not exist.
+- Should NOT withdraw tokens if balance too low.
+- Should create limit order.
+- Should NOT create limit order if token balance too low.
+- Should NOT create limit order if usdc balance too low.
+- Should NOT create limit order if token is USDC.
+- Should NOT create limit order if token does not not exist.
+- Should create market order & match.
+- Should NOT create market order if token balance too low.
+- Should NOT create market order if usdc balance too low.
+- Should NOT create market order if token is USDC.
+- Should NOT create market order if token does not not exist.
+- Should delete order.
+- Should book funds when order is placed.
+- Should return funds when order is canceled.
+
+<InformationalText>
+  Explore `Dex.sol` test file on&nbsp;
+  <a href="#" target="_blank">
+    GitHub
+  </a>
+</InformationalText>
+
+## Final Thoughts
+
+Decentralized Exchanges have become an integral part of DEFI (Decentralized Finance).
+Empowering users to transact freely without the need to trust any third party mediary shows the true potential of Web3.
+
+Financial applications should adopt only the highest quality code with thorough testing to minimize risk for potential malitious acts.
+
+Building this kind of application, gives valuable skills and perspective to understand smart contracts used in DEFI and the importance of writing high quality code.
+
+<br />
+Key skills improved or aquired during development:
+
+- Hands-on experience with smart contracts used in DEFI applications.
+- Sending initial transactions during deployment.
+- Modern and interactive <a href="https://apexcharts.com/" target="_blank">ApexCharts</a> API integration.
+- Advanced smart contract testing.

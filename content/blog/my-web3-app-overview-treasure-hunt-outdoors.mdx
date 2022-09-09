@@ -1,0 +1,205 @@
+---
+title: "My Web3 App Overview: Treasure Hunt Outdoors"
+date: "2022-08-15"
+description: Web3 application powered by Ethereum and inspired by adventure game Geocaching, where community can look for caches pinned on the game map or create new challanges for other adventure enthusiasts.
+thumbnailUrl: "/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-1.png"
+tags: ["Web3", "Ethereum", "Nextj.js", "TailwindCSS"]
+---
+
+One of the first Web3 projects which I built for my portfolio is titled [“Treasure Hunt Outdoors”](https://treasure-hunt-outdoors.dovydas.io), and is available on the [showcase](/showcase) page.
+It's inspired by an outdoors andventure game <a href="https://www.geocaching.com" target="_blank">Geocaching</a>, where users interact with the app to look for caches hidden and pinned on the map by other community members.
+
+<br />
+Smart contract for the application is built with Solidity, and powered by Ethereum
+blockchain. Anyone using Metamask wallet can connect to the application and start
+interacting.
+
+<br />
+The main goal with Treasure Hunt Outdoors project was to develop an operational Web3
+application for my portfolio with fully tested smart contract. I will share some
+insights and overview about the project.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-1.png"
+  caption="Front page of Treasure Hunt Outdoors"
+  width="800"
+  height="500"
+></ImageCaption>
+
+When browsing the application Metamask should be connected to "Ropsten Test Network" (ref. image below) as smart contract is deployed on the testnet.
+Ropsten testnet Ether is used for gas fees when interacting with the application
+(f.e. to locate an existing or hide a new treasure).
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-6.png"
+  caption="Switch to Ropsten Test Network when interacting with the app"
+  width="300"
+  height="500"
+></ImageCaption>
+
+<InformationalText>
+  To get some Ropsten Ethers for testing, you can use the&nbsp;
+  <a href="https://www.ropstenfaucet.xyz" target="_blank">
+    Ropsten faucet
+  </a>
+  <p>.</p>
+</InformationalText>
+
+Community page displays the summary of all user activity.
+A total count for both located and hidden treasures is displayed for each user (unique wallet address) seperately.
+User wallet address excerpts are used instead of usernames.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-2.png"
+  caption="Community page showing user activity"
+  width="800"
+  height="500"
+></ImageCaption>
+
+To list a new cache, user must connect to Metamask and have Ropsten Test Network selected. Some amount of Ropsten Ether should be avilable in the wallet to complete the transaction.
+
+On the listing page ("Hide a Cache") there is a simple form requesting some descriptive information about the cache:
+
+- Title - it is visible on game map, treasures list and individual treasure page.
+- Hint - it can be a direct description of the exact location or a riddle to make it more playful.
+- Location - it should be pinned on the game map as close to the actual cache location as possible.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-3.png"
+  caption="Form used to list a new cache"
+  width="500"
+  height="500"
+></ImageCaption>
+
+Information available on the treasure page (`/treasures/{treasure contract address}`):
+
+- Address of the treasure.
+- Address of treasure creator (owner).
+- Amount of times the treasure has been located by participants.
+- Hint to help locate the treasure (set by the creator of the treasure).
+- Location on the map with latitude/longitude coordinates.
+- Click-to-action button to mark treasure as located.
+- Community logs (list of users who have found the treasure).
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-4.png"
+  caption="Each user has their activity log displayed under their profile page"
+  width="500"
+  height="600"
+></ImageCaption>
+
+## What Tools Did I Use?
+
+#### Smart Contract Development
+
+- <a href="https://trufflesuite.com" target="_blank">
+    Truffle Suite
+  </a>
+  A world class development environment, testing framework and asset pipeline for
+  blockchains using the Ethereum Virtual Machine (EVM), aiming to make life as a
+  developer easier.
+
+- <a href="https://docs.openzeppelin.com/test-helpers" target="_blank">
+    OpenZeppelin Test Helpers
+  </a>
+  Assertion library for Ethereum smart contract testing.
+
+#### Web Application Development
+
+- <a href="https://nextjs.org/" target="_blank">
+    Next.js
+  </a>
+  Next.js gives you the best developer experience with all the features you need
+  for production.
+
+- <a href="https://leafletjs.com" target="_blank">
+    Leaflet
+  </a>
+  an open-source JavaScript library for mobile-friendly interactive maps.
+
+- <a href="https://tailwindcss.com" target="_blank">
+    Tailwind CSS
+  </a>
+  Rapidly build modern websites without ever leaving your HTML.
+
+- <a href="https://heroicons.com" target="_blank">
+    Heroicons
+  </a>
+  Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.
+
+<InformationalText>
+  Full list of dependencies can be found in `package.json` stored on project
+  &nbsp;
+  <a href="https://github.com/dovydinho/treasure-hunt-outdoors" target="_blank">
+    GitHub
+  </a>
+  &nbsp;repository.
+</InformationalText>
+
+## Smart Contract
+
+There are two smart contracts used for the application.
+
+First, **Treasure Factory contract** which is mainly responsible for storing a collection of all treasures and overall user activity.
+
+Second, **Treasure contract** which is dedicated to an individual treasure. It stores data about the treasure and allows it to be located.
+
+Treasure Factory contract has the "createTreasure" function which enables users to create new treasures.
+A new instance of Treasure smart contract is deployed when a new treasure is created.
+It also has few helper functions:
+
+- getAllHiders - to retrieve a an array of unique users who have created treasures.
+- getTreasureContracts - to retrieve all deployed treasure contract addresses.
+- getUsersActivity - to retrieve an array of all user activity.
+
+Treasure contract has "locateTreasure" function which allows users to log themselves on the app when they locate the treasure.
+It also has a helper function "getTreasureSummary" which retrieves all treasure data in a single smart contract call.
+This avoids the need to call smart contract to retrieve each peace of data about the treasure seperately.
+
+<InformationalText>
+  Explore smart contract on Etherscan:&nbsp;
+  <a
+    href="https://ropsten.etherscan.io/address/0x6E41D2a146EE85506A83f79578ad3D04CaB2b59D"
+    target="_blank"
+  >
+    0x6E41D2a146EE85506A83f79578ad3D04CaB2b59D
+  </a>
+</InformationalText>
+
+## Testing Smart Contract
+
+Since smart contracts on Ethereum blockchain are immutable, the most critical phase before deployment is to ensure that the smart contract is absent of any coding errors and thoroughly tested.
+
+There have been a total of 12 smart contract tests written and asserted for this project:
+
+#### For Treasure Factory Contract:
+
+- Should add creator to hiders array ONLY IF not added yet.
+- Should return correct number of hiders.
+- Should return correct number of treasures.
+- Should NOT add creator to hiders array if already added.
+
+#### For Treasure Contract:
+
+- Should have correct initial data.
+- Should add activity to factory contract when treasure is created.
+- Should locate treasure and increment located count.
+- Should add activity to factory contract after treasure is located.
+- Should NOT locate treasure if locator is creator of treasure.
+- Should NOT locate treasure if locator has already located treasure.
+- Should delete treasure contract and remove from treasures list.
+- Should NOT delete treasure if function caller is NOT the creator of treasure.
+
+## Final Thoughts
+
+This concludes a high level overview of my Treasure Hunt Outdoors application.
+
+There is a list of functionality enhancements that I have in mind if I ever decide to supplement the project in the future.
+For now, I think the state in which it is currently in meets my set-out goals.
+
+<br />
+Key skills improved or aquired during development:
+
+- Deploying a smart contract from other smart contract.
+- Interactive <a href="https://leafletjs.com" target="_blank">Leaflet</a> map integration.
+- The beauty of <a href="https://nextjs.org/" target="_blank">Next.js</a> and <a href="https://tailwindcss.com" target="_blank">Tailwind CSS</a>.

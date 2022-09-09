@@ -1,7 +1,7 @@
-import Link from "next/link";
-import cn from "classnames";
-import Image from "next/image";
-import readingTime from "reading-time";
+import Link from 'next/link';
+import cn from 'classnames';
+import Image from 'next/image';
+import readingTime from 'reading-time';
 
 export default function BlogPostCard({ title, slug, thumbnailUrl, content }) {
   const time = readingTime(content);
@@ -10,10 +10,10 @@ export default function BlogPostCard({ title, slug, thumbnailUrl, content }) {
     <Link href={`/blog/${slug}`}>
       <a
         className={cn(
-          "grid grid-cols-1 content-start my-2 rounded-lg",
-          "hover:outline outline-offset-8 outline-8  outline-gray-200 dark:outline-gray-800 overflow-hidden",
-          "bg-white hover:bg-gray-50 dark:bg-gray-800",
-          "transform hover:scale-[1.01] transition-all"
+          'grid grid-cols-1 content-start my-2 rounded-lg',
+          'hover:outline outline-offset-8 outline-8  outline-gray-200 dark:outline-gray-800 overflow-hidden',
+          'bg-white hover:bg-gray-50 dark:bg-gray-800',
+          'transform hover:scale-[1.01] transition-all'
         )}
       >
         <div className="w-full">
@@ -22,7 +22,7 @@ export default function BlogPostCard({ title, slug, thumbnailUrl, content }) {
             height={60}
             width={100}
             src={thumbnailUrl}
-            sizes="10vw"
+            sizes="100vw"
             priority
           />
         </div>

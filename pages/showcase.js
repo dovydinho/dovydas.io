@@ -12,7 +12,7 @@ export default function Showcase() {
           Showcase
         </h1>
 
-        <section className="lg:-mx-16 lg:p-16 md:-mx-8 md:p-8 -mx-6 p-6 rounded-lg bg-gray-200 dark:bg-gray-800 outline outline-offset-8 outline-8 outline-gray-200 dark:outline-gray-800">
+        <section className="-mx-8 sm:-mx-6 md:-mx-8 lg:-mx-16 p-0 sm:p-6 md:p-8 lg:p-16 rounded-lg bg-gray-200 dark:bg-gray-800 outline outline-offset-8 outline-8 outline-gray-200 dark:outline-gray-800">
           <ProjectCard
             title="Decentralized Exchange"
             slug="https://dex.dovydas.io"

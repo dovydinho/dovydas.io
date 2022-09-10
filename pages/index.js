@@ -1,19 +1,19 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { Suspense } from "react";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { Suspense } from 'react';
 import {
   BlogPostCard,
   ProjectCard,
-  WrappingContainer,
-} from "@components/index";
-import Image from "next/image";
-import Link from "next/link";
+  WrappingContainer
+} from '@components/index';
+import Image from 'next/image';
+import Link from 'next/link';
 import {
   ArrowRightIcon,
   ExternalLinkIcon,
-  LinkIcon,
-} from "@heroicons/react/outline";
+  LinkIcon
+} from '@heroicons/react/outline';
 
 export default function Home({ posts }) {
   return (
@@ -64,9 +64,9 @@ export default function Home({ posts }) {
             title="Treasure Hunt Outdoors"
             slug="https://treasure-hunt-outdoors.dovydas.io"
             image="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-7.png"
-            tags={["Web3", "Ethereum", "Next.js", "Leaflet"]}
+            tags={['Web3', 'Ethereum', 'Next.js', 'Leaflet']}
             description="Web3 application powered by Ethereum and inspired by adventure game Geocaching, 
-            where community can look for caches pinned on the game map or create new challanges for other adventure enthusiasts."
+            where community can look for caches pinned on the game map or create new challenges for other adventure enthusiasts."
             network="Ethereum (Ropsten Test Network)"
             contract="0x6E41D2a146EE85506A83f79578ad3D04CaB2b59D"
             github="https://github.com/dovydinho/treasure-hunt-outdoors"
@@ -108,25 +108,25 @@ export default function Home({ posts }) {
 }
 
 export const getStaticProps = async () => {
-  const files = fs.readdirSync(path.join("content/blog"));
+  const files = fs.readdirSync(path.join('content/blog'));
 
   const posts = files.map((filename) => {
     const markdownWithMeta = fs.readFileSync(
-      path.join("content/blog", filename),
-      "utf-8"
+      path.join('content/blog', filename),
+      'utf-8'
     );
     const { data: frontMatter, content } = matter(markdownWithMeta);
 
     return {
       frontMatter,
-      slug: filename.split(".")[0],
-      content,
+      slug: filename.split('.')[0],
+      content
     };
   });
 
   return {
     props: {
-      posts,
-    },
+      posts
+    }
   };
 };

@@ -9,11 +9,7 @@ import {
 } from '@components/index';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  ArrowRightIcon,
-  ExternalLinkIcon,
-  LinkIcon
-} from '@heroicons/react/outline';
+import { ArrowRightIcon, LinkIcon } from '@heroicons/react/outline';
 
 export default function Home({ posts }) {
   return (
@@ -40,7 +36,6 @@ export default function Home({ posts }) {
                 Available for long-term / short-term hire.
               </p>
             </div>
-            {/* sm:w-[164px] */}
             <div className="w-[180px]">
               <Image
                 alt="Dovydas Lapinskas"

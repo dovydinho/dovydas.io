@@ -1,17 +1,16 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { Suspense, useState } from "react";
-import { WrappingContainer, BlogPostCard } from "@components/index";
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { Suspense, useState } from 'react';
+import { WrappingContainer, BlogPostCard } from '@components/index';
 
 export default function Blog({ posts }) {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
 
   posts.sort(
     (a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date)
   );
 
-  console.log(posts);
   const filteredBlogPosts = posts.filter((post) =>
     post.frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
   );
@@ -52,30 +51,6 @@ export default function Blog({ posts }) {
             />
           </svg>
         </div>
-        {/* {!searchValue && (
-          <>
-            <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight md:text-4xl">
-              Pinned
-            </h3>
-            <div className="grid grid-cols-1 w-full md:grid-cols-3 gap-6 content-start">
-              <BlogPostCard
-                title={posts.slice(0, 3)[0].frontMatter.title}
-                slug={posts.slice(0, 3)[0].slug}
-                content={posts.slice(0, 3)[0].content}
-              />
-              <BlogPostCard
-                title={posts.slice(0, 3)[1].frontMatter.title}
-                slug={posts.slice(0, 3)[1].slug}
-                content={posts.slice(0, 3)[0].content}
-              />
-              <BlogPostCard
-                title={posts.slice(0, 3)[2].frontMatter.title}
-                slug={posts.slice(0, 3)[2].slug}
-                content={posts.slice(0, 3)[0].content}
-              />
-            </div>
-          </>
-        )} */}
         <Suspense fallback={null}>
           <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight md:text-4xl">
             {searchValue.length ? (
@@ -83,7 +58,7 @@ export default function Blog({ posts }) {
                 Search for: <span className="text-gray-500">{searchValue}</span>
               </>
             ) : (
-              "All Posts"
+              'All Posts'
             )}
           </h3>
           {!filteredBlogPosts.length && (
@@ -110,25 +85,25 @@ export default function Blog({ posts }) {
 }
 
 export const getStaticProps = async () => {
-  const files = fs.readdirSync(path.join("content/blog"));
+  const files = fs.readdirSync(path.join('content/blog'));
 
   const posts = files.map((filename) => {
     const markdownWithMeta = fs.readFileSync(
-      path.join("content/blog", filename),
-      "utf-8"
+      path.join('content/blog', filename),
+      'utf-8'
     );
     const { data: frontMatter, content } = matter(markdownWithMeta);
 
     return {
       frontMatter,
-      slug: filename.split(".")[0],
-      content,
+      slug: filename.split('.')[0],
+      content
     };
   });
 
   return {
     props: {
-      posts,
-    },
+      posts
+    }
   };
 };

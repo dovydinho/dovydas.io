@@ -1,20 +1,20 @@
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote } from "next-mdx-remote";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { Suspense } from "react";
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { Suspense } from 'react';
 import {
   WrappingContainer,
   ImageCaption,
-  InformationalText,
-} from "@components/index";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import Link from "next/link";
-import Image from "next/image";
-import readingTime from "reading-time";
-import styles from "@styles/BlogPost.module.css";
-import Moment from "react-moment";
+  InformationalText
+} from '@components/index';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import Link from 'next/link';
+import Image from 'next/image';
+import readingTime from 'reading-time';
+import styles from '@styles/BlogPost.module.css';
+import Moment from 'react-moment';
 
 const components = { SyntaxHighlighter, ImageCaption, InformationalText };
 
@@ -22,7 +22,7 @@ export default function SingleBlogPage({
   frontMatter: { title, thumbnailUrl, date },
   slug,
   mdxSource,
-  content,
+  content
 }) {
   const time = readingTime(content);
   const dateFormatted = new Date(date);
@@ -43,11 +43,10 @@ export default function SingleBlogPage({
                 <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
                   {title}
                 </h3>
-                <p className="mb-6 text-gray-500 text-sm">
-                  {/* {date} &bull; {time.text} */}
-                  Published <Moment fromNow>{dateFormatted}</Moment> &bull;{" "}
-                  {time.text}
-                </p>
+                <div className="mb-6 text-gray-500 text-sm">
+                  Published <Moment fromNow>{dateFormatted}</Moment> &bull;{' '}
+                  <span className="font-medium">{time.text}</span>
+                </div>
               </div>
             </div>
             <div className="w-full sm:w-1/2">
@@ -89,17 +88,6 @@ export default function SingleBlogPage({
                     </svg>
                   </a>
                 </Link>
-                <Link href="https://twitter.com/dovydinho">
-                  <a target="_blank">
-                    <svg
-                      className="w-6 h-6 text-gray-400 text-blue-400 fill-current transform hover:scale-[1.25] transition-all"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 496 512"
-                    >
-                      <path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"></path>
-                    </svg>
-                  </a>
-                </Link>
               </div>
             </div>
             <div className="w-full sm:w-5/6">
@@ -131,17 +119,6 @@ export default function SingleBlogPage({
                       </svg>
                     </a>
                   </Link>
-                  <Link href="https://twitter.com/dovydinho">
-                    <a target="_blank">
-                      <svg
-                        className="w-6 h-6 text-gray-400 text-blue-400 fill-current transform hover:scale-[1.25] transition-all"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 496 512"
-                      >
-                        <path d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z"></path>
-                      </svg>
-                    </a>
-                  </Link>
                 </div>
               </div>
             </div>
@@ -153,24 +130,24 @@ export default function SingleBlogPage({
 }
 
 const getStaticPaths = async () => {
-  const files = fs.readdirSync(path.join("content/blog"));
+  const files = fs.readdirSync(path.join('content/blog'));
 
   const paths = files.map((filename) => ({
     params: {
-      slug: filename.replace(".mdx", ""),
-    },
+      slug: filename.replace('.mdx', '')
+    }
   }));
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   };
 };
 
 const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMeta = fs.readFileSync(
-    path.join("content/blog", slug + ".mdx"),
-    "utf-8"
+    path.join('content/blog', slug + '.mdx'),
+    'utf-8'
   );
 
   const { data: frontMatter, content } = matter(markdownWithMeta);
@@ -181,8 +158,8 @@ const getStaticProps = async ({ params: { slug } }) => {
       frontMatter,
       slug,
       mdxSource,
-      content,
-    },
+      content
+    }
   };
 };
 

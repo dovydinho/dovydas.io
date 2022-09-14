@@ -20,7 +20,7 @@ export default function Showcase() {
             tags={['DEFI', 'Ethereum', 'Next.js', 'ApexCharts']}
             description="DEX allow users to trade ERC-20 tokens listed on the exchange. It is deployed on Ethereum Ropsten Test Network and uses USDC stablecoin testnet representation for trade settlements."
             network="Ethereum (Ropsten Test Network)"
-            contract="0xE3304B555607eA326E7Ba77a3C56aD9820dCc0f2"
+            contract="0x5EB8bC7F4A09A9510685A744F6f355248Bd52272"
             github="https://github.com/dovydinho/dex"
           />
           <ProjectCard

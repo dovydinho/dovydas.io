@@ -153,16 +153,17 @@ DEX smart contract enables users to make instant trades (market orders) and to s
 
 - User has sufficient balances when placing orders.
 - Order amount is subtracted from user balance (return if trade is canceled).
-- Order is added to the order book.
-- Order book is sorted for BUY and SELL orders appropriately.
+- Order is executed if a matching price is available on the order book.
+- If the order is not matched, it is added to the order book.
+- Order book is sorted by order price.
 
 <InformationalText>
   Explore smart contract on Etherscan:&nbsp;
   <a
-    href="https://ropsten.etherscan.io/address/0xE3304B555607eA326E7Ba77a3C56aD9820dCc0f2"
+    href="https://ropsten.etherscan.io/address/0x5EB8bC7F4A09A9510685A744F6f355248Bd52272"
     target="_blank"
   >
-    0xE3304B555607eA326E7Ba77a3C56aD9820dCc0f2
+    0x5EB8bC7F4A09A9510685A744F6f355248Bd52272
   </a>
 </InformationalText>
 
@@ -170,7 +171,7 @@ DEX smart contract enables users to make instant trades (market orders) and to s
 
 Since smart contracts on Ethereum blockchain are immutable, the most critical phase before deployment is to ensure that the smart contract is absent of any coding errors and thoroughly tested.
 
-There have been a total of 18 smart contract tests written and asserted for this application:
+There have been a total of 22 smart contract tests written and asserted for this application:
 
 #### For DEX Smart Contract:
 
@@ -180,6 +181,10 @@ There have been a total of 18 smart contract tests written and asserted for this
 - Should NOT withdraw tokens if token does not exist.
 - Should NOT withdraw tokens if balance too low.
 - Should create limit order.
+- Should create limit order and partially fill if order is available for execution
+- Should execute limit order fully if orders are available for execution.
+- Should append to existing order if same price order is available for order creator.
+- Should ignore oposite side orders by the same user when creating limit orders.
 - Should NOT create limit order if token balance too low.
 - Should NOT create limit order if usdc balance too low.
 - Should NOT create limit order if token is USDC.
@@ -195,7 +200,7 @@ There have been a total of 18 smart contract tests written and asserted for this
 
 <InformationalText>
   Explore `Dex.sol` test file on&nbsp;
-  <a href="#" target="_blank">
+  <a href="https://github.com/dovydinho/dex/blob/main/contracts/Dex.sol" target="_blank">
     GitHub
   </a>
 </InformationalText>

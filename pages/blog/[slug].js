@@ -31,7 +31,7 @@ export default function SingleBlogPage({
     <Suspense fallback={null}>
       <WrappingContainer>
         <section className="flex flex-col justify-center items-start max-w-4xl border-gray-200 dark:border-gray-700 pb-16">
-          <div className="flex flex-col sm:flex-row w-full">
+          <div className="flex flex-col gap-4 sm:flex-row w-full">
             <div className="w-full sm:w-1/2 order-last sm:order-first">
               <div className="grid h-full content-center">
                 <div className="text-gray-500 text-sm">

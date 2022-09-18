@@ -1,0 +1,78 @@
+---
+title: 'DEX App Update: Create Limit Order'
+date: '2022-09-18'
+description: The DEX application is a portfolio project for dovydas.io. It's built with Solidity and deployed on Ethereum Test Network Ropsten.
+thumbnailUrl: '/img/blog/dex-update-create-limit-order/thumbnail.png'
+tags: ['functions', 'smart contracts', 'solidity', 'update', 'dapp', 'dex']
+---
+
+After initial release of my DEX application, I decided to go back and improve its functionality, specifically for creating limit orders. 
+First iteration of **_Create Limit Order_** function was very basic. 
+It validated if the user has sufficient amount of tokens (USDC if BUY order and selected token if SELL order). 
+If passed, it simply pushed a new order to the orders array after collecting user inputs for amount and price to be traded for. 
+It did not account for wider range of possible scenarios which could occur in real world conditions.
+
+<br />
+Unaccounted scenarios when creating limit orders:
+- Matching price order (or multiple orders) is already available for ***partial*** order fill.
+- Matching price order (or multiple orders) is already available for ***full*** order fill.
+- Matching price order is submitted by the same user.
+
+First, form validation has been added to Front-End of the application to avoid wasting gas fees for no tangible outcome. 
+It checks and prevents smart contract function submissions when invalid inputs, i.e., zero value, invalid fractional digits, are submitted.
+
+<br />
+Then, after permissive inputs are submitted, application calls smart contract Create Limit Order function. 
+Validation on smart contract checks the before mentioned statements:
+
+- User shall have enough USDC to execute order, if the order is to ***BUY*** tokens.
+- User shall have enough tokens to execute order, if the order is to ***SELL*** tokens.
+
+Continuing on, two sets of data arrays are taken from the smart contract. 
+One for orders which match the side (BUY or SELL) of the submitted order, other for opposite side orders.
+
+<br />
+A new variable called ***remaining*** is set to initially match the trade amount submitted by the user.
+
+If there are any opposite side orders available, a while loop checks for orders which offer the exact or better price for the submitted order and if the remaining amount is greater than zero.
+
+All new orders are sorted by price; therefore, the while loop needs to repeat until the first false condition is met.
+
+<br />
+When while loop condition is ***true***, function is progressed in the following sequence:
+1. Additional check is made, to see if the matching order is ***NOT*** placed by the new limit order initiator before continuing with the code block. 
+If the pair is matched - order is skipped and the while loop checks other order iteration. 
+If the next iteration returns ***false*** loop condition, the while loop is concluded.
+If the next iteration returns ***true***, following code block logic is applied.
+2. Available amount for the matched order is compared with the ***remaining*** amount to check which one is greater. 
+3. Remaining amount is deducted by the matched amount and new trade event is triggered.
+4. Balances are updated for both, matched and new order owners.
+
+<ImageCaption
+  url="/img/blog/dex-update-create-limit-order/image_1.png"
+  caption="While loop flow chart (source: tutorialspoint.com)"
+  width="270"
+  height="400"
+></ImageCaption>
+
+In a scenario where multiple opposite side orders are suited for match; the above loop will continuously run and execute until the remaining amount is exhausted. 
+Fulfilled orders are then removed from the opposite orders array.
+
+<InformationalText>
+  When removing elements from an array from a loop using&nbsp;
+  <a href="https://devdocs.io/javascript/global_objects/array/pop" target="_blank">
+    .pop()
+  </a>
+  &nbsp;function, the length of an array is reduced; therefore, it is easy to skip an element when incrementing the iteration count.
+</InformationalText>
+
+If there are not enough trade events which could exhaust the ***remaining*** amount of the submitted order, a new limit order is created and pushed to the orders array. 
+The array is then sorted by price.
+
+<InformationalText>
+  Explore `Dex.sol` file on 
+  <a href="https://github.com/dovydinho/dex/blob/main/contracts/Dex.sol" target="_blank">
+    GitHub
+  </a>
+  &nbsp;repository.
+</InformationalText>

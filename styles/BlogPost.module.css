@@ -57,3 +57,12 @@
 .mdxContent strong {
   font-weight: 700;
 }
+
+.mdxContent ol,
+.mdxContent ul {
+  padding: 10px 0 20px 20px;
+}
+
+.mdxContent ol {
+  list-style: decimal;
+}

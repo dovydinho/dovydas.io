@@ -1,10 +1,30 @@
 import Image from 'next/image';
 import cn from 'classnames';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { XCircleIcon } from '@heroicons/react/outline';
 
 export default function ImageCaption({ url, width, height, caption }) {
   const [popupImage, setPopupImage] = useState(false);
+
+  useEffect(() => {
+    const keyDownHandler = (e) => {
+      if (e.code === 'Escape') {
+        setPopupImage(false);
+      }
+    };
+    const mouseClickHandler = (e) => {
+      if (e) {
+        setPopupImage(false);
+      }
+    };
+
+    document.addEventListener('keydown', keyDownHandler);
+    document.addEventListener('mousedown', mouseClickHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, []);
 
   return (
     <>

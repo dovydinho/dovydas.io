@@ -56,15 +56,14 @@ export default function Home({ posts }) {
           </h3>
 
           <ProjectCard
-            title="Treasure Hunt Outdoors"
-            slug="https://treasure-hunt-outdoors.dovydas.io"
-            image="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-7.png"
-            tags={['Web3', 'Ethereum', 'Next.js', 'Leaflet']}
-            description="Web3 application powered by Ethereum and inspired by adventure game Geocaching, 
-            where community can look for caches pinned on the game map or create new challenges for other adventure enthusiasts."
+            title="Decentralized Exchange"
+            slug="https://dex.dovydas.io"
+            image="/img/blog/my-web3-app-overview-dex/dex-1.png"
+            tags={['DEFI', 'Ethereum', 'Next.js', 'ApexCharts']}
+            description="DEX allow users to trade ERC-20 tokens listed on the exchange. It is deployed on Ethereum Ropsten Test Network and uses USDC stablecoin testnet representation for trade settlements."
             network="Ethereum (Ropsten Test Network)"
-            contract="0x6E41D2a146EE85506A83f79578ad3D04CaB2b59D"
-            github="https://github.com/dovydinho/treasure-hunt-outdoors"
+            contract="0x5EB8bC7F4A09A9510685A744F6f355248Bd52272"
+            github="https://github.com/dovydinho/dex"
           />
 
           <Link href="/showcase">

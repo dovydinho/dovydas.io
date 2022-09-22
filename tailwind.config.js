@@ -1,13 +1,11 @@
-const { spacing, fontFamily } = require("tailwindcss/defaultTheme");
-
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
   ],
-  darkMode: "class",
+  darkMode: 'class',
   variants: {
-    typography: ["dark"],
+    typography: ['dark']
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require('@tailwindcss/typography')]
 };

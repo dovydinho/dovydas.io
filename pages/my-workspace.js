@@ -50,8 +50,6 @@ export default function Workspace() {
         <p className="py-2 text-xl font-bold">Coding</p>
         <ul className="list-disc marker:text-gray-500 pl-6 mb-2">
           <li>VSCode Editor</li>
-          <li>Ganache - Truffle Suite</li>
-          <li>Git Bash Terminal</li>
         </ul>
         <p className="py-2 text-xl font-bold">Other Software</p>
         <ul className="list-disc marker:text-gray-500 pl-6 mb-2">

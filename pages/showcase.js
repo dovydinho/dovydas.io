@@ -1,5 +1,4 @@
-import { WrappingContainer } from '@components/index';
-import ProjectCard from '@components/project-card';
+import { WrappingContainer, ProjectCard } from '@components/index';
 
 export default function Showcase() {
   return (

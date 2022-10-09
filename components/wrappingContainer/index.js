@@ -1,24 +1,25 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import NextLink from "next/link";
-import cn from "classnames";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
+import NextLink from 'next/link';
+import cn from 'classnames';
 
-import { Footer, MobileMenu } from "@components/index";
+import { Footer, MobileMenu } from '@components/index';
 
-function NavItem({ href, text }) {
+function NavItem({ href, text, target }) {
   const router = useRouter();
   const isActive = router.asPath === href;
 
   return (
     <NextLink href={href}>
       <a
+        target={target}
         className={cn(
           isActive
-            ? "font-semibold text-gray-800 dark:text-gray-200"
-            : "font-normal text-gray-600 dark:text-gray-400",
-          "hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
+            ? 'font-semibold text-gray-800 dark:text-gray-200'
+            : 'font-normal text-gray-600 dark:text-gray-400',
+          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
         )}
       >
         <span className="capsize">{text}</span>
@@ -38,11 +39,11 @@ export default function WrappingContainer(props) {
   const router = useRouter();
   const meta = {
     title:
-      "Dovydas Lapinskas – Web3 developer, cryptocurrency enthusiast, and digital creator.",
+      'Dovydas Lapinskas – Web3 developer, cryptocurrency enthusiast, and digital creator.',
     description:
-      "Portfolio of full-stack blockchain developer, cryptocurrency enthusiast, and digital creator.",
-    type: "website",
-    ...customMeta,
+      'Portfolio of full-stack blockchain developer, cryptocurrency enthusiast, and digital creator.',
+    type: 'website',
+    ...customMeta
   };
 
   return (
@@ -68,11 +69,10 @@ export default function WrappingContainer(props) {
             <NavItem href="/" text="Home" />
             <NavItem href="/showcase" text="Showcase" />
             <NavItem href="/blog" text="Blog" />
-            <NextLink href="https://www.linkedin.com/in/dovydas-lapinskas">
-              <a
-                target="_blank"
-                className="p-1 sm:px-2 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
-              >
+            <NavItem
+              href="https://www.linkedin.com/in/dovydas-lapinskas"
+              target="blank"
+              text={
                 <svg
                   className="w-6 h-6 text-blue-500 fill-current hidden md:inline-block"
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,13 +80,12 @@ export default function WrappingContainer(props) {
                 >
                   <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path>
                 </svg>
-              </a>
-            </NextLink>
-            <NextLink href="https://twitter.com/dovydinho">
-              <a
-                target="_blank"
-                className="p-1 sm:px-2 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all"
-              >
+              }
+            />
+            <NavItem
+              href="https://twitter.com/dovydinho"
+              target="blank"
+              text={
                 <svg
                   className="w-6 h-6 text-blue-300 fill-current hidden md:inline-block"
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,15 +93,15 @@ export default function WrappingContainer(props) {
                 >
                   <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
                 </svg>
-              </a>
-            </NextLink>
+              }
+            />
           </div>
           <button
             aria-label="Toggle Dark Mode"
             type="button"
             className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600 flex items-center justify-center  hover:ring-2 ring-gray-300  transition-all"
             onClick={() =>
-              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
             }
           >
             {mounted && (
@@ -113,7 +112,7 @@ export default function WrappingContainer(props) {
                 stroke="currentColor"
                 className="w-5 h-5 text-gray-800 dark:text-gray-200"
               >
-                {resolvedTheme === "dark" ? (
+                {resolvedTheme === 'dark' ? (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

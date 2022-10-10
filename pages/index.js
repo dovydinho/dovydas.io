@@ -10,8 +10,14 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, LinkIcon } from '@heroicons/react/outline';
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
 export default function Home({ posts }) {
+  const [text, count] = useTypewriter({
+    words: ['long-term hire.', 'short-term hire.', 'contract-specific hire.'],
+    loop: true,
+    delaySpeed: 2000
+  });
   return (
     <Suspense fallback={null}>
       <WrappingContainer>
@@ -29,11 +35,13 @@ export default function Home({ posts }) {
               <p className="py-2">
                 Full-stack Blockchain Developer | Web3 Applications
               </p>
-              <p className="text-gray-600 dark:text-gray-400 py-2 mb-16">
+              <p className="text-gray-600 dark:text-gray-400 py-2">
                 Building Web3 applications with Ethereum. Contributing to
                 Blockchain communities.
-                <br />
-                Available for long-term / short-term hire.
+              </p>
+              <p className="mb-16 font-bold">
+                Available for <span>{text}</span>
+                <Cursor cursorColor="orange" />
               </p>
             </div>
             <div className="w-[180px]">

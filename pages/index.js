@@ -44,7 +44,7 @@ export default function Home({ posts }) {
                 <Cursor cursorColor="orange" />
               </p>
             </div>
-            <div className="w-[180px]">
+            <div className="w-[240px] mx-auto border-8 border-gray-200 dark:border-gray-800 sm:border-none rounded-full p-2 sm:p-0 sm:w-[180px]">
               <Image
                 alt="Dovydas Lapinskas"
                 height={176}

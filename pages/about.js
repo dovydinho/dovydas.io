@@ -48,7 +48,7 @@ export default function About() {
           Mechanical Engineering.
         </p>
         <h3 className="py-4 text-3xl font-bold">Headshot</h3>
-        <div className="w-1/2">
+        <div className="w-full sm:w-1/2">
           <Image
             alt="Dovydas Lapinskas"
             height={176}

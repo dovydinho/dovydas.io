@@ -23,7 +23,7 @@ export default function Home({ posts }) {
     <Suspense fallback={null}>
       <WrappingContainer>
         <section className="flex flex-col justify-center items-start max-w-4xl mx-auto">
-          <div className="flex flex-col-reverse w-full sm:flex-row items-start mx-auto">
+          <div className="flex flex-col-reverse w-full sm:flex-row items-start mx-auto overflow-hidden">
             <motion.div
               initial={{ x: -500, opacity: 0, scale: 0.5 }}
               animate={{ x: 0, opacity: 1, scale: 1 }}

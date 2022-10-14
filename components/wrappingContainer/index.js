@@ -61,12 +61,7 @@ export default function WrappingContainer(props) {
         <meta property="og:description" content={meta.description} />
       </Head>
       <div className="flex flex-col justify-center px-8">
-        <motion.nav
-          initial={{ y: -500, opacity: 0, scale: 0.5 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3 }}
-          className="flex items-center justify-between w-full relative max-w-4xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16"
-        >
+        <nav className="flex items-center justify-between w-full relative max-w-4xl border-gray-200 dark:border-gray-700 mx-auto pt-8 pb-8 sm:pb-16">
           <a href="#skip" className="skip-nav">
             Skip to content
           </a>
@@ -136,12 +131,18 @@ export default function WrappingContainer(props) {
               </svg>
             )}
           </button>
-        </motion.nav>
+        </nav>
       </div>
-      <main id="skip" className="flex flex-col justify-center px-8">
+      <motion.main
+        initial={{ y: 0, opacity: 0, scale: 0.5 }}
+        animate={{ y: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+        id="skip"
+        className="flex flex-col justify-center px-8"
+      >
         <section className="max-w-4xl mx-auto w-full py-8">{children}</section>
         <Footer />
-      </main>
+      </motion.main>
     </div>
   );
 }

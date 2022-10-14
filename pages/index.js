@@ -11,7 +11,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon, LinkIcon } from '@heroicons/react/outline';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
-import { motion } from 'framer-motion';
 
 export default function Home({ posts }) {
   const [text, count] = useTypewriter({
@@ -24,12 +23,7 @@ export default function Home({ posts }) {
       <WrappingContainer>
         <section className="flex flex-col justify-center items-start max-w-4xl mx-auto">
           <div className="flex flex-col-reverse w-full sm:flex-row items-start mx-auto overflow-hidden">
-            <motion.div
-              initial={{ x: -500, opacity: 0, scale: 0.5 }}
-              animate={{ x: 0, opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="flex flex-col sm:pr-8 w-full sm:w-4/5"
-            >
+            <div className="flex flex-col sm:pr-8 w-full sm:w-4/5">
               <h1 className="text-4xl md:text-5xl font-bold flex">
                 Dovydas Lapinskas
                 <Link href="/about">
@@ -49,13 +43,8 @@ export default function Home({ posts }) {
                 Available for <span>{text}</span>
                 <Cursor cursorColor="orange" />
               </p>
-            </motion.div>
-            <motion.div
-              initial={{ x: 500, opacity: 0, scale: 0.5 }}
-              animate={{ x: 0, opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="w-[240px] mx-auto border-8 border-gray-200 dark:border-gray-800 sm:border-none rounded-full p-2 sm:p-0 sm:w-[180px]"
-            >
+            </div>
+            <div className="w-[240px] mx-auto border-8 border-gray-200 dark:border-gray-800 sm:border-none rounded-full p-2 sm:p-0 sm:w-[180px]">
               <Image
                 alt="Dovydas Lapinskas"
                 height={176}
@@ -65,7 +54,7 @@ export default function Home({ posts }) {
                 priority
                 className="rounded-full"
               />
-            </motion.div>
+            </div>
           </div>
         </section>
 

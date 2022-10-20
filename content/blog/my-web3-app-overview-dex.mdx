@@ -1,7 +1,7 @@
 ---
 title: 'My Web3 App Overview: Decentralized Exchange'
 date: '2022-09-09'
-description: The DEX application is a portfolio project for dovydas.io. It's built with Solidity and deployed on Ethereum Test Network Ropsten.
+description: The DEX application is a portfolio project for dovydas.io. It's built with Solidity and deployed on Ethereum Test Network Goerli.
 thumbnailUrl: '/img/blog/my-web3-app-overview-dex/dex-2.png'
 tags: ['functions', 'javascript']
 ---
@@ -67,20 +67,20 @@ It is then returned if the order is canceled or distributed according to the tra
   height="460"
 ></ImageCaption>
 
-When browsing the application Metamask should be connected to "Ropsten Test Network" (ref. image below) as smart contract is deployed on the testnet.
-Rinkeby testnet Ether is used for gas fees when interacting with the application (f.e. deposit, withdraw, create new trade).
+When browsing the application Metamask should be connected to "Goerli Test Network" (ref. image below) as smart contract is deployed on the testnet.
+Goerli testnet Ether is used for gas fees when interacting with the application (f.e. deposit, withdraw, create new trade).
 
 <ImageCaption
   url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-6.png"
-  caption="Switch to Ropsten Test Network when interacting with the app"
+  caption="Switch to Goerli Test Network when interacting with the app"
   width="300"
   height="500"
 ></ImageCaption>
 
 <InformationalText>
-  To get some Ropsten Ethers for testing, you can use the&nbsp;
-  <a href="https://www.ropstenfaucet.xyz" target="_blank">
-    Ropsten faucet
+  To get some Goerli Ethers for testing, you can use the&nbsp;
+  <a href="https://goerli-faucet.pk910.de" target="_blank">
+    Goerli faucet
   </a>
   <p>.</p>
 </InformationalText>
@@ -160,10 +160,10 @@ DEX smart contract enables users to make instant trades (market orders) and to s
 <InformationalText>
   Explore smart contract on Etherscan:&nbsp;
   <a
-    href="https://ropsten.etherscan.io/address/0x5EB8bC7F4A09A9510685A744F6f355248Bd52272"
+    href="https://goerli.etherscan.io/address/0xE970aDF0413879763a1B49dfFc72589672d2937A"
     target="_blank"
   >
-    0x5EB8bC7F4A09A9510685A744F6f355248Bd52272
+    0xE970aDF0413879763a1B49dfFc72589672d2937A
   </a>
 </InformationalText>
 
@@ -181,7 +181,7 @@ There have been a total of 22 smart contract tests written and asserted for this
 - Should NOT withdraw tokens if token does not exist.
 - Should NOT withdraw tokens if balance too low.
 - Should create limit order.
-- Should create limit order and partially fill if order is available for execution
+- Should create limit order and partially fill if order is available for execution.
 - Should execute limit order fully if orders are available for execution.
 - Should append to existing order if same price order is available for order creator.
 - Should ignore oposite side orders by the same user when creating limit orders.

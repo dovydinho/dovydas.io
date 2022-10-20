@@ -64,14 +64,14 @@ export default function Home({ posts }) {
           </h3>
 
           <ProjectCard
-            title="Decentralized Exchange"
-            slug="https://dex.dovydas.io"
-            image="/img/blog/my-web3-app-overview-dex/dex-1.png"
-            tags={['DEFI', 'Ethereum', 'Next.js', 'ApexCharts']}
-            description="DEX allow users to trade ERC-20 tokens listed on the exchange. It is deployed on Ethereum Ropsten Test Network and uses USDC stablecoin testnet representation for trade settlements."
-            network="Ethereum (Ropsten Test Network)"
-            contract="0x5EB8bC7F4A09A9510685A744F6f355248Bd52272"
-            github="https://github.com/dovydinho/dex"
+            title="Crowdfund"
+            slug="https://crowdfund.dovydas.io"
+            image="/img/blog/my-web3-app-overview-crowdfund/crowdfund-4.jpg"
+            tags={['Ethereum', 'Next.js', 'Sanity', 'Hardhat']}
+            description="Crowdfund app enables users to create projects and set weekly funding targets to be unlocked and distributed for project contributors evenly and transparently."
+            network="Ethereum (Goerli Test Network)"
+            contract="0xb465C6E71C8694846426A28f596D4c44D203F6bC"
+            github="https://github.com/dovydinho/crowdfund"
           />
 
           <Link href="/showcase">
@@ -125,6 +125,10 @@ export const getStaticProps = async () => {
       content
     };
   });
+
+  posts.sort(
+    (a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date)
+  );
 
   return {
     props: {

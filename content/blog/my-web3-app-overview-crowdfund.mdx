@@ -1,0 +1,224 @@
+---
+title: 'My Web3 App Overview: Crowdfund'
+date: '2022-10-21'
+description: Crowdfund application is a portfolio project for dovydas.io. It's built with Solidity and deployed on Ethereum Test Network Goerli.
+thumbnailUrl: '/img/blog/my-web3-app-overview-crowdfund/crowdfund-1.jpg'
+tags: ['functions', 'javascript']
+---
+
+Blockchain applications flourishes best at disrupting centralized services. 
+There are a lot of project funding programs which allow creators to receive income from their supporters, 
+however it is usually shadowed by service fees, censorship and unknown activities behind the doors. 
+Web3 can solve this by managing all of financial activities with open-source smart contracts. 
+This ensures transparent flow of funds and trust in execution.
+
+<br />
+This article shares an overview for 
+<a href="https://crowdfund.dovydas.io" target="_blank">“Crowdfund”</a> portfolio application built on Ethereum.
+It showcases how smart contracts can be integrated and merged with centralized backend data.
+This solution enables better user experience via faster fetching of data for user interface without sacrificing the transparency of smart contract execution.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-crowdfund/crowdfund-1.jpg"
+  caption="Front page displays project carousel"
+  width="800"
+  height="500"
+></ImageCaption>
+
+Strategy behind the architecture of the application was to minimize data stored on smart contracts, narrowing it down to essentials. 
+Rest of the data which is linked to smart contracts is stored on centralized database. 
+
+Without the centralized data feed there would be no technical obstacles for smart contracts to operate as designed. 
+However, it would lose the helper data assigned to smart contracts which provide users more details about the project fund (i.e., title, description, images). 
+This is a tolerable risk for most of web3 applications as centralized data could be replicated and deployed on different service provider. 
+Therefore, the approach of separating of non-essential data from smart contracts is very common.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-crowdfund/crowdfund-2.jpg"
+  caption="Single project page"
+  width="500"
+  height="715"
+></ImageCaption>
+
+The page for creating new projects has a live preview section to show how the project card is going to look on the homepage. 
+This style is also replicated on search results component.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-crowdfund/crowdfund-3.jpg"
+  caption="Create page with live project card preview"
+  width="800"
+  height="500"
+></ImageCaption>
+
+When browsing the application Metamask should be connected to "Goerli Test Network" (ref. image below) as smart contract is deployed on the testnet.
+Goerli testnet Ether is used for gas fees when interacting with the application (i.e., create project, add and remove contributors, sponsor, etc.).
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-6.png"
+  caption="Switch to Goerli Test Network when interacting with the app"
+  width="300"
+  height="500"
+></ImageCaption>
+
+<InformationalText>
+  To get some Goerli Ethers for testing, you can use the&nbsp;
+  <a href="https://goerli-faucet.pk910.de" target="_blank">
+    Goerli faucet
+  </a>
+  <p>.</p>
+</InformationalText>
+
+## What Tools Did I Use?
+
+#### Smart Contract Development
+
+- <a href="https://hardhat.org" target="_blank">
+    Hardhat
+  </a>
+  Hardhat is a development environment for Ethereum software.
+
+- <a href="https://docs.openzeppelin.com/test-helpers" target="_blank">
+    Chai
+  </a>
+  Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.
+
+- <a href="https://hardhat.org/hardhat-network-helpers/docs/overview" target="_blank">
+    Hardhat Network Helpers
+  </a>
+  Hardhat Network Helpers is a library that provides a set of utility functions to interact with the Hardhat Network.
+
+#### Web Application Development
+
+- <a href="https://nextjs.org" target="_blank">
+    Next.js
+  </a>
+  Next.js gives you the best developer experience with all the features you need
+  for production.
+
+- <a href="https://www.sanity.io" target="_blank">
+    Sanity
+  </a>
+  Sanity is the platform for structured content that powers remarkable digital experiences.
+
+- <a href="https://tailwindcss.com" target="_blank">
+    Tailwind CSS
+  </a>
+  Rapidly build modern websites without ever leaving your HTML.
+
+<InformationalText>
+  Full list of dependencies can be found in `package.json` stored on project
+  &nbsp;
+  <a href="https://github.com/dovydinho/crowdfund" target="_blank">
+    GitHub
+  </a>
+  &nbsp;repository.
+</InformationalText>
+
+## Smart Contract
+
+Similar to 
+<a href="http://dovydas.io/blog/my-web3-app-overview-treasure-hunt-outdoors" target="_blank">Treasure Hunt Outdoors</a> 
+portfolio project, there are two smart contracts used for the application.
+
+First, **Project Crowdfund Factory** contract which is mainly responsible for storing a collection of all projects.
+
+Second, **Project Crowdfund** contract which is dedicated to an individual project. It stores essential data and functionality for the project (i. e., balance, contributors, sponsors, ability to unlock and distribute funds, etc.).
+
+#### Project Crowdfund Factory:
+
+- Stores array of projects.
+- Keeps an overall projects count.
+- Allows to create projects.
+- Allows owners to remove their projects (external function).
+
+#### Project Crowdfund:
+
+- Stores owner wallet address.
+- Stores factory contract address.
+- Stores array of contributors and contributors count.
+- Stores array of sponsors and sponsors count.
+- Keeps creation timestamp.
+- Keeps target amount.
+- Allows to periodically unlock and keeps unlocked amount.
+- Keeps next available unlock timeframe.
+- Allows to unlock and distribute funds to contributors.
+- Allows contract to receive funds.
+- Gets summary data in a single smart contract call.
+
+<InformationalText>
+  Explore smart contract on Etherscan:&nbsp;
+  <a
+    href="https://goerli.etherscan.io/address/0xb465C6E71C8694846426A28f596D4c44D203F6bC"
+    target="_blank"
+  >
+    0xb465C6E71C8694846426A28f596D4c44D203F6bC
+  </a>
+</InformationalText>
+
+## Testing Smart Contract
+
+Since smart contracts on Ethereum blockchain are immutable, the most critical phase before deployment is to ensure that the smart contract is absent of any coding errors and thoroughly tested.
+
+There has been a total of 28 smart contract tests asserted for this application:
+
+#### For ProjectCrowdfundFactory Smart Contract:
+
+- Should create new ProjectCrowdfund contract with correct values and increment projects count.
+- Should remove existing project and decrement projects count.
+- Should NOT create new ProjectCrowdfund if target is not set.
+- Should NOT remove project if function is called NOT by project owner.
+
+#### For ProjectCrowdfund Smart Contract:
+
+- Should create new ProjectCrowdfund contract with correct values.
+- Should edit target.
+- Should add contributor and increment contributors' count.
+- Should remove contributor and decrement contributors' count.
+- Should fund contract and set sponsored amount for sponsor.
+- Should fund contract and append existing amount to sponsor if already a sponsor.
+- Should unlock amount and set new next unlock time.
+- Should distribute funds to contributors.
+- Should deactivate project.
+- Should activate inactive project.
+- Should get project summary and match data.
+- Should destroy project and send funds to owner.
+- Should NOT add contributor if initiator is not owner.
+- Should NOT add contributor if contributor already exist.
+- Should NOT remove contributor if contributor does not exist.
+- Should NOT remove contributor if contributor is owner.
+- Should NOT remove contributor if initiator is not owner.
+- Should NOT unlock amount if unlock period not passed.
+- Should NOT unlock amount if balance is zero.
+- Should NOT unlock if remaining funds to unlock is zero.
+- Should NOT deactivate project if not owner.
+- Should NOT activate project if not owner.
+- Should NOT destroy project if not owner.
+- Should NOT destroy project if active.
+
+<InformationalText>
+  Explore `Crowdfund.sol` test file on&nbsp;
+  <a href="https://github.com/dovydinho/crowdfund/blob/main/test/Crowdfund.js" target="_blank">
+    GitHub
+  </a>
+  &nbsp;repository.
+</InformationalText>
+
+## Final Thoughts
+
+There is a great potential for web3 applications when merging smart contract functionality with externally stored data. 
+Storing non-essential data in smart contracts is highly inefficient which arguably is even an understatement. 
+
+True adoption comes in stages. 
+Therefore, I think joint decentralized and centralized solutions is a path we must take to excel in blockchain adoption.
+
+<br />
+Building Crowdfund application gave me new perspectives on how write more efficient smart contracts. 
+Also, I feel that I added great tools to my web3 development stack. 
+
+<br />
+Key skills improved or acquired during development:
+
+- Developing Smart Contracts with <a href="https://hardhat.org/" target="_blank">Hardhat</a>.
+- Using <a href="https://docs.ethers.io/ethers.js/v3.0/html" target="_blank">Ethers.js</a> library for Front-end.
+- Hands-on experience with TypeScript.
+- Data link between smart contracts and CMS (<a href="https://www.sanity.io" target="_blank">Sanity</a>).

@@ -7,10 +7,6 @@ import { WrappingContainer, BlogPostCard } from '@components/index';
 export default function Blog({ posts }) {
   const [searchValue, setSearchValue] = useState('');
 
-  posts.sort(
-    (a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date)
-  );
-
   const filteredBlogPosts = posts.filter((post) =>
     post.frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
   );
@@ -100,6 +96,10 @@ export const getStaticProps = async () => {
       content
     };
   });
+
+  posts.sort(
+    (a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date)
+  );
 
   return {
     props: {

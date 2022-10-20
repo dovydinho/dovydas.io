@@ -63,7 +63,7 @@ export default function ProjectCard({
             </p>
             <p className="text-sm pb-2">
               Contract:{' '}
-              <Link href={`https://ropsten.etherscan.io/address/${contract}`}>
+              <Link href={`https://goerli.etherscan.io/address/${contract}`}>
                 <a className="font-bold hover:underline" target="_blank">
                   {contract.slice(2, 6) + `-` + contract.slice(38, 42)}
                 </a>

@@ -33,11 +33,18 @@ However, it would lose the helper data assigned to smart contracts which provide
 This is a tolerable risk for most of web3 applications as centralized data could be replicated and deployed on different service provider. 
 Therefore, the approach of separating of non-essential data from smart contracts is very common.
 
+<br />
+When browsing a single project on <a href="https://crowdfund.dovydas.io" target="_blank">“Crowdfund”</a> platform, it displays general information and enables key functionality:
+- Displays project title and description (fetched from database).
+- Displays accumulated balance from sponsors (fetched from database).
+- Allows connected wallets to sponsor the project (smart contract functionality).
+- Displays a list of contributors and sponsors for the project (fetched from smart contract).
+
 <ImageCaption
-  url="/img/blog/my-web3-app-overview-crowdfund/crowdfund-2.jpg"
+  url="/img/blog/my-web3-app-overview-crowdfund/crowdfund-4.jpg"
   caption="Single project page"
-  width="500"
-  height="715"
+  width="620"
+  height="700"
 ></ImageCaption>
 
 The page for creating new projects has a live preview section to show how the project card is going to look on the homepage. 

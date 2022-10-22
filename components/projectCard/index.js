@@ -49,7 +49,7 @@ export default function ProjectCard({
                     return (
                       <span
                         key={index}
-                        className="inline-block bg-gray-50 dark:bg-gray-700 hover:dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-bold text-gray-700 dark:text-gray-300 mr-2 mb-2"
+                        className="inline-block bg-gray-900/5 dark:bg-gray-100/10 rounded-full px-3 py-1 text-sm font-bold text-gray-700 dark:text-gray-300 mr-2 mb-2"
                       >
                         {tag}
                       </span>
@@ -103,9 +103,9 @@ export default function ProjectCard({
                 <a target="_blank">
                   <button
                     className={cn(
-                      'bg-gradient-to-r from-indigo-500 to-pink-500 hover:from-indigo-600 hover:to-pink-600 text-gray-100',
-                      'dark:from-indigo-900 dark:to-pink-600 dark:hover:from-indigo-800 dark:hover:to-pink-500',
-                      'shadow-lg rounded-lg px-12 py-2 text-sm font-bold'
+                      'bg-gray-300 hover:bg-gray-200 border border-gray-900/5',
+                      'dark:bg-gray-100/10 dark:hover:bg-gray-100/20 dark:border dark:border-gray-100/10',
+                      'shadow-lg rounded-lg px-12 py-2 text-sm font-bold transition'
                     )}
                   >
                     Preview

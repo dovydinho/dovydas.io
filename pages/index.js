@@ -22,8 +22,8 @@ export default function Home({ posts }) {
     <Suspense fallback={null}>
       <WrappingContainer>
         <section className="flex flex-col justify-center items-start max-w-4xl mx-auto">
-          <div className="flex flex-col-reverse w-full sm:flex-row items-start mx-auto overflow-hidden">
-            <div className="flex flex-col sm:pr-8 w-full sm:w-4/5">
+          <div className="flex flex-col-reverse w-full sm:flex-row items-start mx-auto">
+            <div className="sm:pr-8 w-full sm:w-4/5">
               <h1 className="text-4xl md:text-5xl font-bold flex">
                 Dovydas Lapinskas
                 <Link href="/about">
@@ -44,7 +44,8 @@ export default function Home({ posts }) {
                 <Cursor cursorColor="orange" />
               </p>
             </div>
-            <div className="w-[240px] mx-auto border-8 border-gray-200 dark:border-gray-800 sm:border-none rounded-full p-2 sm:p-0 sm:w-[180px]">
+            <div className="relative w-[240px] h-[240px] mx-auto sm:w-[180px] sm:h-[180px] mb-8 sm:mb-auto">
+              <div className="animate-pulse absolute flex flex-col items-center justify-center w-full h-full outline outline-8 outline-offset-8 sm:outline-0 outline-gray-200 dark:outline-gray-800 rounded-full" />
               <Image
                 alt="Dovydas Lapinskas"
                 height={176}

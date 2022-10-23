@@ -45,7 +45,7 @@ export default function Home({ posts }) {
               </p>
             </div>
             <div className="relative w-[240px] h-[240px] mx-auto sm:w-[180px] sm:h-[180px] mb-8 sm:mb-auto">
-              <div className="animate-pulse absolute flex flex-col items-center justify-center w-full h-full outline outline-8 outline-offset-8 sm:outline-0 outline-gray-200 dark:outline-gray-800 rounded-full" />
+              <div className="animate-pulse absolute flex flex-col items-center justify-center w-[272px] h-[272px] -m-4 border-8 z-40 sm:border-none border-gray-200 dark:border-gray-800 rounded-full" />
               <Image
                 alt="Dovydas Lapinskas"
                 height={176}

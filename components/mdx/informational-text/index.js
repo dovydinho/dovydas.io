@@ -1,5 +1,4 @@
 import { InformationCircleIcon } from '@heroicons/react/outline';
-import cn from 'classnames';
 
 export default function InformationalText({ children }) {
   return (

@@ -20,7 +20,7 @@ export default function Showcase() {
             description="NFT Drop allows users to browse displayed artist collections and mint new NFTs which are the available on the most popular NFT marketplace - Opensea."
             network="Ethereum (Goerli Test Network)"
             contract="0xAac3B8d788f85684A5c959c6CF005E11FaeD0f57"
-            github="https://github.com/dovydinho/crowdfund"
+            github="https://github.com/dovydinho/nft-drop"
           />
           <ProjectCard
             title="Crowdfund"

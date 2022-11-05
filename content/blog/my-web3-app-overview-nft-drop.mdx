@@ -1,0 +1,121 @@
+---
+title: 'My Web3 App Overview: NFT Drop'
+date: '2022-11-05'
+description: NFT-Drop is a NFT Collection portfolio project for dovydas.io. It's built with Thirdweb and deployed on Ethereum Test Network Goerli.
+thumbnailUrl: '/img/blog/my-web3-app-overview-nft-drop/nft-drop-1.jpg'
+tags: ['functions', 'javascript']
+---
+
+Non-Fungible Tokens or NFTs for short have really picked up the pace in terms of search volume since early 2021 and it's been on top for many conversations ever since. 
+This new trend of ownership of digital things have created a north of billion-dollar marketplace accessible for all.
+
+<a href="https://nft-drop.dovydas.io" target="_blank">“NFT Drop”</a> is an open-source project with collections of digital artworks available to mint. 
+It showcases the most widely use case for NFT projects. 
+Newly minted NFTs are available on <a href="https://opensea.io" target="_blank">OpenSea</a> (most popular NFT marketplace) and can be transfered or listed for sale if owner decides to do so.
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-nft-drop/nft-drop-1.jpg"
+  caption="Front page showcasing created collections"
+  width="800"
+  height="550"
+></ImageCaption>
+
+<br />
+Artworks used for collections of this demo project are not unique. 
+They are copies of few of the most recently trending NFT collections.
+
+Front page of the application displays all available collections. 
+This is an alternative to an artist gallery, showcasing work of different lyrical subjects at a physical galleria.
+<br />
+The website is architected for its content (NFT collections) to be easily modified by authenticated user with the use of <a href="https://sanity.io" target="_blank">Sanity</a> CMS (Content Management System). 
+All collections with their unique data are stored on Sanity and linked with Smart Contract functionality with the help of <a href="https://thirdweb.com" target="_blank">Thirdweb</a>. 
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-nft-drop/nft-drop-2.jpg"
+  caption="Individual collection page"
+  width="800"
+  height="550"
+></ImageCaption>
+
+<br />
+Available functionality for NFT Collection owners:
+- Set a royalty fee (in %) for each of the sale of NFT on owners collection.
+- Set fee for minting a new NFT on the collection (ETH, WETH or USDC Coin).
+- Limit how many seconds do wallets have to wait in-between claiming.
+- Limit who can claim NFTs first (per set duration and amount).
+
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-nft-drop/nft-drop-3.jpg"
+  caption="Congratulations page when a new NFT is minted"
+  width="800"
+  height="550"
+></ImageCaption>
+
+When browsing the application Metamask should be connected to "Goerli Test Network" (ref. image below) as smart contract is deployed on the testnet.
+Goerli testnet Ether is used for gas fees when interacting with the application (i.e., mint an NFT).
+
+<ImageCaption
+  url="/img/blog/my-web3-app-overview-treasure-hunt-outdoors/treasure-hunt-outdoors-6.jpg"
+  caption="Switch to Goerli Test Network when interacting with the app"
+  width="300"
+  height="500"
+></ImageCaption>
+
+<InformationalText>
+  To get some Goerli Ethers for testing, you can use the&nbsp;
+  <a href="https://goerli-faucet.pk910.de" target="_blank">
+    Goerli faucet
+  </a>
+  <p>.</p>
+</InformationalText>
+
+## What Tools Did I Use?
+
+- <a href="https://thirdweb.com" target="_blank">
+    Thirdweb
+  </a>
+  Powerful SDKs and intuitive tools for developers.
+  
+- <a href="https://nextjs.org" target="_blank">
+    Next.js
+  </a>
+  Next.js gives you the best developer experience with all the features you need
+  for production.
+
+- <a href="https://www.sanity.io" target="_blank">
+    Sanity
+  </a>
+  Sanity is the platform for structured content that powers remarkable digital experiences.
+
+- <a href="https://tailwindcss.com" target="_blank">
+    Tailwind CSS
+  </a>
+  Rapidly build modern websites without ever leaving your HTML.
+
+<InformationalText>
+  Full list of dependencies can be found in `package.json` stored on project
+  &nbsp;
+  <a href="https://github.com/dovydinho/nft-drop" target="_blank">
+    GitHub
+  </a>
+  &nbsp;repository.
+</InformationalText>
+
+## Final Thoughts
+
+NFTs are opening doors for a lot of creative projects to be built using ERC721 and ERC721 Standards.
+
+Building NFT Drop project gave me first hands experience with most popular NFT trend - NFT Collections and Minting new NFTs. 
+
+Looking at NFT space overall, there is a lot of similar attempts of catching the next trend in NFTs but majority lack innovative ideas.
+
+Tools like Thirdweb gives a strong foundation for rapid development when building standardized applications. 
+Since the code on the platform is audited developers can be less stressed about potential vulnerabilities on their smart contracts.
+
+<br />
+Key skills improved or acquired during development:
+
+- Using <a href="https://thirdweb.com/" target="_blank">Thirdweb</a> for smart contract deployment.
+- Data link between smart contracts and CMS (<a href="https://www.sanity.io" target="_blank">Sanity</a>).
+- Advanced the development experience with TypeScript.

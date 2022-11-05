@@ -13,6 +13,16 @@ export default function Showcase() {
 
         <section className="-mx-8 sm:-mx-6 md:-mx-8 lg:-mx-16 p-0 sm:p-6 md:p-8 lg:p-16 rounded-lg bg-gray-200 dark:bg-gray-800 outline outline-offset-8 outline-8 outline-gray-200 dark:outline-gray-800">
           <ProjectCard
+            title="NFT Drop"
+            slug="https://nft-drop.dovydas.io"
+            image="/img/blog/my-web3-app-overview-nft-drop/nft-drop-4.jpg"
+            tags={['Next.js', 'Sanity', 'Thirdweb']}
+            description="NFT Drop allows users to browse displayed artist collections and mint new NFTs which are the available on the most popular NFT marketplace - Opensea."
+            network="Ethereum (Goerli Test Network)"
+            contract="0xAac3B8d788f85684A5c959c6CF005E11FaeD0f57"
+            github="https://github.com/dovydinho/crowdfund"
+          />
+          <ProjectCard
             title="Crowdfund"
             slug="https://crowdfund.dovydas.io"
             image="/img/blog/my-web3-app-overview-crowdfund/crowdfund-4.jpg"

@@ -32,11 +32,9 @@ export default function Home({ posts }) {
                   </a>
                 </Link>
               </h1>
-              <p className="py-2">
-                Full-stack Blockchain Developer | Web3 Applications
-              </p>
+              <p className="py-2">Software Engineer | Web3 Applications</p>
               <p className="text-gray-600 dark:text-gray-400 py-2">
-                Building Web3 applications with Ethereum. Contributing to
+                Building Web3 applications with Solidity. Contributing to
                 Blockchain communities.
               </p>
               <p className="mb-16 font-bold">

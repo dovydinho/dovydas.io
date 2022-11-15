@@ -6,12 +6,12 @@ export default function Showcase() {
       title="Showcase - Dovydas Lapinskas"
       description="Web3 applications showcase of full-stack blockchain developer, cryptocurrency enthusiast, and digital creator."
     >
-      <div className="flex flex-col items-start justify-center max-w-4xl mx-auto mb-16">
+      <div className="flex flex-col max-w-4xl mx-auto mb-16">
         <h1 className="mb-8 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Showcase
         </h1>
 
-        <section className="-mx-8 sm:-mx-6 md:-mx-8 lg:-mx-16 p-0 sm:p-6 md:p-8 lg:p-16 rounded-lg bg-gray-200 dark:bg-gray-800 outline outline-offset-8 outline-8 outline-gray-200 dark:outline-gray-800">
+        <section className="sm:px-8 py-2 rounded-3xl sm:bg-gray-200 sm:dark:bg-gray-800 sm:outline outline-offset-8 outline-8 outline-gray-200 dark:outline-gray-800">
           <ProjectCard
             title="NFT Drop"
             slug="https://nft-drop.dovydas.io"

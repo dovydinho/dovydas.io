@@ -36,7 +36,7 @@ export default function ProjectCard({
             </a>
           </Link>
         </div>
-        <div className="w-full md:w-3/5 px-0 sm:px-6 py-3">
+        <div className="w-full md:w-3/5 px-3 sm:px-6 py-3">
           <div>
             <Link href={slug}>
               <a className="flex text-2xl font-bold" target="_blank">

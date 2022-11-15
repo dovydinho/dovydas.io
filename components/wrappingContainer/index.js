@@ -138,7 +138,7 @@ export default function WrappingContainer(props) {
         animate={{ y: 0, opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
         id="skip"
-        className="flex flex-col justify-center px-8"
+        className="flex flex-col justify-center px-4"
       >
         <section className="max-w-4xl mx-auto w-full py-8">{children}</section>
         <Footer />

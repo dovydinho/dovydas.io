@@ -14,32 +14,31 @@ export default function About() {
         </h1>
         <h3 className="py-4 text-3xl font-bold">Bio</h3>
         <p className="py-2 text-xl font-bold">Specialty</p>
-        <p className="mb-2">Web3 Software Development</p>
+        <p className="mb-2">Software Engineering, Web3</p>
 
         <p className="py-2 text-xl font-bold">
           Introduction of Self, 3rd Person
         </p>
         <p className="mb-2">
-          Dovydas Lapinskas is a Software Engineer with experience in building
-          various web3 projects. He is a self-taught programming recruit
-          switched from Engineering field where he lead large-scale and
-          complexity projects in both Confectionary and Tobacco industries. With
-          long-term passion for IT, Dovydas has previously web development
-          experience working with several affiliate marketing and Google AdSense
-          programs.
+          Dovydas Lapinskas is a Software Engineer with a focus on building web3
+          applications. He is a self-taught programming recruit who switched
+          from Engineering where he led large-scale and complex projects in both
+          the Confectionary and Tobacco industries. With a long-term passion for
+          IT, Dovydas has previous web-based project experience working with
+          several affiliate marketing and Google AdSense programs.
         </p>
 
         <p className="py-2 text-xl font-bold">
           Introduction of Self, 1st Person
         </p>
         <p className="mb-2">
-          Hey, I&apos;m Dovydas. I&apos;m a Software Engineer working with
-          various web3 projects. I&apos;m a self-taught programmer switched from
-          Engineering field where I lead large-scale and complexity projects in
-          both Tobacco and Confectionary. As an IT enthusiast even when working
-          in Engineering I was always involved with web development working with
-          several affiliate marketing and Google Adsense programs. I&apos;m an
-          investor and hodler of cryptocurrencies.
+          Hey, I&apos;m Dovydas. I&apos;m a Software Engineer working with web3
+          and blockchain applications. I&apos;m a self-taught programmer who
+          switched from the engineering field where I led large-scale and
+          complex projects in both Tobacco and Confectionary. As a passionate IT
+          enthusiast, I was always involved with side web-based projects
+          including several affiliate marketing and Google AdSense program
+          initiatives.
         </p>
 
         <p className="py-2 text-xl font-bold">Education</p>

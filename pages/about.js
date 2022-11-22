@@ -60,40 +60,41 @@ export default function About() {
         </div>
         <h3 className="py-4 text-3xl font-bold">Links</h3>
         <ul className="list-disc marker:text-gray-500 pl-6 mb-2">
-          <li>
-            Twitter:{' '}
-            <Link href="https://twitter.com/dovydinho">
-              <a target="_blank" className="text-blue-600 dark:text-blue-300">
-                @dovydinho
-              </a>
-            </Link>
-          </li>
-          <li>
-            GitHub:{' '}
-            <Link href="https://github.com/dovydinho">
-              <a target="_blank" className="text-blue-600 dark:text-blue-300">
-                @dovydinho
-              </a>
-            </Link>
-          </li>
-          <li>
-            Website:{' '}
-            <Link href="https://dovydas.io">
-              <a target="_blank" className="text-blue-600 dark:text-blue-300">
-                https://dovydas.io
-              </a>
-            </Link>
-          </li>
-          <li>
-            LinkedIn:{' '}
-            <Link href="https://www.linkedin.com/in/dovydas-lapinskas/">
-              <a target="_blank" className="text-blue-600 dark:text-blue-300">
-                https://www.linkedin.com/in/dovydas-lapinskas
-              </a>
-            </Link>
-          </li>
+          <ListItemLink
+            title="Twitter"
+            href="https://twitter.com/dovydinho"
+            description="@dovydinho"
+          />
+          <ListItemLink
+            title="GitHub"
+            href="https://github.com/dovydinho"
+            description="@dovydinho"
+          />
+          <ListItemLink
+            title="Website"
+            href="https://dovydas.io"
+            description="https://dovydas.io"
+          />
+          <ListItemLink
+            title="LinkedIn"
+            href="https://www.linkedin.com/in/dovydas-lapinskas"
+            description="https://www.linkedin.com/in/dovydas-lapinskas"
+          />
         </ul>
       </div>
     </WrappingContainer>
   );
 }
+
+const ListItemLink = ({ title, href, description }) => {
+  return (
+    <li>
+      {title}:{' '}
+      <Link href={href}>
+        <a target="_blank" className="text-blue-600 dark:text-blue-300">
+          {description}
+        </a>
+      </Link>
+    </li>
+  );
+};

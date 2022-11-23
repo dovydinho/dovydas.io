@@ -39,10 +39,9 @@ export default function WrappingContainer(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title:
-      'Dovydas Lapinskas – Web3 developer, cryptocurrency enthusiast, and digital creator.',
+    title: 'Dovydas Lapinskas - Software Engineer, Web3',
     description:
-      'Portfolio of full-stack blockchain developer, cryptocurrency enthusiast, and digital creator.',
+      'Portfolio of web3 software engineer, cryptocurrency enthusiast, and digital content creator.',
     type: 'website',
     ...customMeta
   };

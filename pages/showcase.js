@@ -4,7 +4,7 @@ export default function Showcase() {
   return (
     <WrappingContainer
       title="Showcase - Dovydas Lapinskas"
-      description="Web3 applications showcase of full-stack blockchain developer, cryptocurrency enthusiast, and digital creator."
+      description="Web3 software engineer, cryptocurrency enthusiast, and digital content creator applications showcase"
     >
       <div className="flex flex-col max-w-4xl mx-auto mb-16">
         <h1 className="mb-8 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">

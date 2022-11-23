@@ -6,7 +6,7 @@ export default function About() {
   return (
     <WrappingContainer
       title="About – Dovydas Lapinskas"
-      description="About Dovydas Lapinskas: full-stack blockchain developer, cryptocurrency enthusiast, and digital creator."
+      description="About Dovydas Lapinskas: web3 software engineer, cryptocurrency enthusiast, and digital content creator."
     >
       <div className="flex flex-col items-start justify-center max-w-4xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">

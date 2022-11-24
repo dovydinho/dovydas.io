@@ -5,29 +5,7 @@ import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
 import cn from 'classnames';
 import { motion } from 'framer-motion';
-
 import { Footer, MobileMenu } from '@components/index';
-
-function NavItem({ href, text, target }) {
-  const router = useRouter();
-  const isActive = router.asPath === href;
-
-  return (
-    <NextLink href={href}>
-      <a
-        target={target}
-        className={cn(
-          isActive
-            ? 'font-semibold text-gray-800 dark:text-gray-200'
-            : 'font-normal text-gray-600 dark:text-gray-400',
-          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
-        )}
-      >
-        <span className="capsize">{text}</span>
-      </a>
-    </NextLink>
-  );
-}
 
 export default function WrappingContainer(props) {
   const [mounted, setMounted] = useState(false);
@@ -37,7 +15,6 @@ export default function WrappingContainer(props) {
   useEffect(() => setMounted(true), []);
 
   const { children, ...customMeta } = props;
-  const router = useRouter();
   const meta = {
     title: 'Dovydas Lapinskas - Software Engineer, Web3',
     description:
@@ -139,9 +116,30 @@ export default function WrappingContainer(props) {
         id="skip"
         className="flex flex-col justify-center px-4"
       >
-        <section className="max-w-4xl mx-auto w-full py-8">{children}</section>
+        <section className="w-full max-w-4xl mx-auto py-8">{children}</section>
         <Footer />
       </motion.main>
     </div>
+  );
+}
+
+function NavItem({ href, text, target }) {
+  const router = useRouter();
+  const isActive = router.asPath === href;
+
+  return (
+    <NextLink href={href}>
+      <a
+        target={target}
+        className={cn(
+          isActive
+            ? 'font-semibold text-gray-800 dark:text-gray-200'
+            : 'font-normal text-gray-600 dark:text-gray-400',
+          'hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800 transition-all'
+        )}
+      >
+        <span className="capsize">{text}</span>
+      </a>
+    </NextLink>
   );
 }

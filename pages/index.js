@@ -43,7 +43,7 @@ export default function Home({ posts }) {
               </p>
             </div>
             <div className="relative w-[240px] h-[240px] mx-auto sm:w-[180px] sm:h-[180px] mb-8 sm:mb-auto">
-              <div className="animate-pulse absolute flex flex-col items-center justify-center w-[272px] h-[272px] -m-4 border-8 z-40 sm:border-none border-gray-200 dark:border-gray-800 rounded-full" />
+              <div className="sm:hidden animate-pulse absolute flex flex-col items-center justify-center w-[272px] h-[272px] -m-4 border-8 z-40 border-gray-200 dark:border-gray-800 rounded-full" />
               <Image
                 alt="Dovydas Lapinskas"
                 height={176}
@@ -57,7 +57,7 @@ export default function Home({ posts }) {
           </div>
         </section>
 
-        <section className="lg:-mx-16 lg:p-16 md:-mx-8 md:p-8 -mx-6 p-6 rounded-lg bg-gray-200 dark:bg-gray-800 outline outline-offset-8 outline-8 outline-gray-200 dark:outline-gray-800">
+        <section className="sm:px-8 py-8 sm:-mx-4 rounded-3xl sm:bg-gray-200 sm:dark:bg-gray-800 sm:outline outline-offset-8 outline-8 outline-gray-200 dark:outline-gray-800">
           <h3 className="font-bold text-2xl md:text-4xl tracking-tight">
             Featured Web3 Project
           </h3>

@@ -31,7 +31,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-#
-.prettierrc.js
-.prettierignore

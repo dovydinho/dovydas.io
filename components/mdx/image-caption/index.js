@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import cn from 'classnames';
 import { useEffect, useState } from 'react';
+import cn from 'classnames';
 
 export default function ImageCaption({ url, width, height, caption }) {
   const [popupImage, setPopupImage] = useState(false);

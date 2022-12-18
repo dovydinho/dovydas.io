@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
-import cn from "classnames";
-import { ArrowRightIcon, ExclamationIcon } from "@heroicons/react/outline";
-import Link from "next/link";
+import Link from 'next/link';
+import { useState, useRef } from 'react';
+import cn from 'classnames';
+import { ArrowRightIcon, ExclamationIcon } from '@heroicons/react/outline';
 
 export default function Subscribe() {
   const [message, setMessage] = useState(null);
@@ -12,7 +12,7 @@ export default function Subscribe() {
     const email = inputEl.current.value;
 
     const res = await fetch(`/api/subscribe?email=${email}`, {
-      method: "POST",
+      method: 'POST'
     });
 
     const { error } = await res.json();
@@ -21,16 +21,16 @@ export default function Subscribe() {
       return;
     }
 
-    inputEl.current.value = "";
+    inputEl.current.value = '';
     setMessage(`Great! Please check your mailbox for confirmation.`);
   };
 
   return (
     <div
       className={cn(
-        "rounded-lg p-6 my-4 w-full",
-        "bg-gradient-to-r from-purple-200 dark:from-purple-900 via-cyan-200 dark:via-cyan-900 to-pink-200 dark:to-pink-900",
-        "outline outline-8 outline-offset-8 outline-indigo-200 dark:outline-purple-900"
+        'rounded-lg p-6 my-4 w-full',
+        'bg-gradient-to-r from-purple-200 dark:from-purple-900 via-cyan-200 dark:via-cyan-900 to-pink-200 dark:to-pink-900',
+        'outline outline-8 outline-offset-8 outline-indigo-200 dark:outline-purple-900'
       )}
     >
       <p className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100">
@@ -49,15 +49,15 @@ export default function Subscribe() {
           autoComplete="email"
           required
           className={cn(
-            "px-4 py-2 mt-1 block w-full rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 pr-32",
-            "focus:outline-none focus:ring"
+            'px-4 py-2 mt-1 block w-full rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 pr-32',
+            'focus:outline-none focus:ring'
           )}
         />
         <button
           className={cn(
-            "flex items-center justify-center absolute right-1 top-1 px-4 h-8 rounded-lg w-48",
-            "bg-purple-200 dark:bg-purple-800",
-            "hover:bg-purple-300 dark:hover:bg-purple-900"
+            'flex items-center justify-center absolute right-1 top-1 px-4 h-8 rounded-lg w-48',
+            'bg-purple-200 dark:bg-purple-800',
+            'hover:bg-purple-300 dark:hover:bg-purple-900'
           )}
           type="submit"
         >
@@ -76,7 +76,7 @@ export default function Subscribe() {
       </Link>
       <div>
         {message &&
-          (message === "Great! Please check your mailbox for confirmation." ? (
+          (message === 'Great! Please check your mailbox for confirmation.' ? (
             <div
               className="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
               role="alert"

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const ExternalLink = ({ href, children }) => (
   <a
@@ -39,9 +39,6 @@ export default function Footer() {
           </ExternalLink>
           <ExternalLink href="https://github.com/dovydinho">
             GitHub
-          </ExternalLink>
-          <ExternalLink href="https://www.linkedin.com/in/dovydas-lapinskas">
-            LinkedIn
           </ExternalLink>
         </div>
         <div className="flex flex-col space-y-4">

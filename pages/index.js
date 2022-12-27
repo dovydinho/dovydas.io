@@ -1,16 +1,17 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Suspense } from 'react';
+import { ArrowRightIcon, LinkIcon } from '@heroicons/react/outline';
+
 import {
   BlogPostCard,
   ProjectCard,
   WrappingContainer
 } from '@components/index';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRightIcon, LinkIcon } from '@heroicons/react/outline';
-import { Cursor, useTypewriter } from 'react-simple-typewriter';
 
 export default function Home({ posts }) {
   const [text, count] = useTypewriter({

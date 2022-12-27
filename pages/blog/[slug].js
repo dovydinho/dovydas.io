@@ -1,20 +1,21 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { Suspense } from 'react';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Suspense } from 'react';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import readingTime from 'reading-time';
+import Moment from 'react-moment';
+
+import styles from '@styles/BlogPost.module.css';
 import {
   WrappingContainer,
   ImageCaption,
   InformationalText
 } from '@components/index';
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import Link from 'next/link';
-import Image from 'next/image';
-import readingTime from 'reading-time';
-import styles from '@styles/BlogPost.module.css';
-import Moment from 'react-moment';
 
 const components = { SyntaxHighlighter, ImageCaption, InformationalText };
 

@@ -1,7 +1,8 @@
+import { Suspense, useState } from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { Suspense, useState } from 'react';
+
 import { WrappingContainer, BlogPostCard } from '@components/index';
 
 export default function Blog({ posts }) {

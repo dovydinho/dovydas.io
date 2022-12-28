@@ -76,11 +76,6 @@ export default function About() {
             href="https://dovydas.io"
             description="https://dovydas.io"
           />
-          <ListItemLink
-            title="LinkedIn"
-            href="https://www.linkedin.com/in/dovydas-lapinskas"
-            description="https://www.linkedin.com/in/dovydas-lapinskas"
-          />
         </ul>
       </div>
     </WrappingContainer>

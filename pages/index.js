@@ -15,7 +15,11 @@ import {
 
 export default function Home({ posts }) {
   const [text, count] = useTypewriter({
-    words: ['long-term hire.', 'short-term hire.', 'contract-specific hire.'],
+    words: [
+      'Building apps with Next.js.',
+      'Styling with TailwindCSS.',
+      'Creating and testing with Hardhat.'
+    ],
     loop: true,
     delaySpeed: 2000
   });
@@ -35,11 +39,12 @@ export default function Home({ posts }) {
               </h1>
               <p className="py-2">Software Engineer | Web3 Applications</p>
               <p className="text-gray-600 dark:text-gray-400 py-2">
-                Building Web3 applications with Solidity. Contributing to
-                Blockchain communities.
+                Building open-source web3 applications with Solidity. Committed
+                to staying informed on industry developments and actively
+                participating in the web3 community.
               </p>
               <p className="mb-16 font-bold">
-                Available for <span>{text}</span>
+                <span>{text}</span>
                 <Cursor cursorColor="orange" />
               </p>
             </div>
